@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Reks Android App</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_now">Register Now</string>
+    <string name="welcome_please_sign_in_to_continue">Welcome, Please Sign in to Continue.</string>
 </resources>
