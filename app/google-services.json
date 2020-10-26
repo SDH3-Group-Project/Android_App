@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "940359456642",
+    "firebase_url": "https://sdh3-reks.firebaseio.com",
+    "project_id": "sdh3-reks",
+    "storage_bucket": "sdh3-reks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940359456642:android:798425b3d1f43b160f219b",
+        "android_client_info": {
+          "package_name": "com.reks.androidApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940359456642-0r9jdquns9a3vpl750dovtlp5repi2cv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkayB85ItLjayvh0RYHY_SRxZPh4Z2cY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940359456642-0r9jdquns9a3vpl750dovtlp5repi2cv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
