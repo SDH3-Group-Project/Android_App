@@ -7,23 +7,18 @@
         android:icon="@mipmap/applogo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
-<!--        android:theme="@style/Theme.AppCompat.DayNight"-->
+        android:theme="@style/Theme.AppCompat.DayNight">
 
-        <activity android:name=".login">
+        <activity android:name=".Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+        <activity android:name=".homepage"></activity>
+        <activity android:name=".login"></activity>
     </application>
 
 </manifest>
