@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class login extends AppCompatActivity {
+    // https://www.youtube.com/watch?v=bBJF1M5h_UU Tutorial Followed for Implementation
 
     private EditText lPasswordInput;
     private EditText lEmailInput;
@@ -43,15 +42,6 @@ public class login extends AppCompatActivity {
         lEmailInput = findViewById(R.id.userEmailInput);
         lPasswordInput = findViewById(R.id.userPasswordInput);
         mAuth = FirebaseAuth.getInstance();
-
-        createRequest();
-
-        findViewById(R.id.google_signIn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
     }
 
     private void createRequest(){
@@ -59,7 +49,8 @@ public class login extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
-    private void signIn() {
+    public void signIn(View view) {
+        createRequest();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -105,4 +96,6 @@ public class login extends AppCompatActivity {
                 });
 
     }
+
+
 }

@@ -19,17 +19,32 @@
 
     <TextView
         android:id="@+id/userName"
-        android:layout_width="146dp"
+        android:layout_width="212dp"
         android:layout_height="19dp"
-        android:text="TextView"
+        android:text="username"
+        app:layout_constraintBottom_toTopOf="@+id/userMail"
         app:layout_constraintEnd_toStartOf="@+id/logout"
-        app:layout_constraintTop_toTopOf="@+id/logout" />
+        app:layout_constraintTop_toTopOf="@+id/logout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/userMail"
-        android:layout_width="150dp"
-        android:layout_height="19dp"
-        android:text="TextView"
+        android:layout_width="212dp"
+        android:layout_height="17dp"
+        android:text="userEmail"
         app:layout_constraintBottom_toBottomOf="@+id/logout"
         app:layout_constraintEnd_toStartOf="@+id/logout" />
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="77dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logout"
+        app:srcCompat="@drawable/reks"
+        tools:srcCompat="@drawable/reks" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

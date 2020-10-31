@@ -98,7 +98,7 @@
         android:id="@+id/lTextWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="24dp"
         android:text="@string/welcome_please_sign_in_to_continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.66"
@@ -106,17 +106,23 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="234dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/common_google_signin_btn_text_dark_normal_background"
-        android:drawableLeft="@drawable/common_google_signin_btn_icon_light_normal"
+        android:id="@+id/googleSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/common_google_signin_btn_text_dark"
+        android:clickable="true"
+        android:foreground="@drawable/common_google_signin_btn_icon_dark"
+        android:foregroundGravity="left"
+        android:onClick="signIn"
         android:text="Sign In with Google"
         android:textColor="#FAFAFA"
-        app:layout_constraintEnd_toEndOf="@+id/lSignup"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lLoginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lLoginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

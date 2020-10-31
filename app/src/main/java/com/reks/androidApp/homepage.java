@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -16,6 +17,7 @@ public class homepage extends AppCompatActivity {
 
     TextView userName, userMail;
     Button logout;
+    ImageView userImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,13 @@ public class homepage extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         userName = findViewById(R.id.userName);
         userMail = findViewById(R.id.userMail);
+        userImage = findViewById(R.id.userImage);
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){
             userName.setText(signInAccount.getDisplayName());
             userMail.setText(signInAccount.getEmail());
+            //userImage.setImageURI(signInAccount.getPhotoUrl());
         }
 
         logout.setOnClickListener(new View.OnClickListener() {
