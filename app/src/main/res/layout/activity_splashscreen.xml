@@ -8,11 +8,30 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="228dp"
+        android:layout_height="245dp"
+        android:contentDescription="CompanyLogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/reks" />
+
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="287dp"
+        android:layout_height="235dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <ProgressBar
+            android:layout_width="99dp"
+            android:layout_height="102dp"
+            android:layout_alignParentBottom="true"
+            android:indeterminate="true"
+            android:rotationX="-7" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
