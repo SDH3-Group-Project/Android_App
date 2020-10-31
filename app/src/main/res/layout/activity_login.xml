@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/google_signIn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground"
@@ -103,4 +104,19 @@
         app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="234dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_google_signin_btn_text_dark_normal_background"
+        android:drawableLeft="@drawable/common_google_signin_btn_icon_light_normal"
+        android:text="Sign In with Google"
+        android:textColor="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="@+id/lSignup"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lLoginButton"
+        app:layout_constraintTop_toBottomOf="@+id/lLoginButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
