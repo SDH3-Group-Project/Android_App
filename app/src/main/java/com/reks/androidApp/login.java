@@ -26,10 +26,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class login extends AppCompatActivity {
     // https://www.youtube.com/watch?v=bBJF1M5h_UU Tutorial Followed for Implementation
 
-    private EditText lPasswordInput;
-    private EditText lEmailInput;
-    Button verify;
-
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
@@ -39,8 +35,6 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        lEmailInput = findViewById(R.id.userEmailInput);
-        lPasswordInput = findViewById(R.id.userPasswordInput);
         mAuth = FirebaseAuth.getInstance();
     }
 

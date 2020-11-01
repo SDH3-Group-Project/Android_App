@@ -8,56 +8,6 @@
     android:background="?android:attr/colorBackground"
     tools:context=".login">
 
-    <EditText
-        android:id="@+id/userEmailInput"
-        android:layout_width="235dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lTextWelcome" />
-
-    <EditText
-        android:id="@+id/userPasswordInput"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailInput" />
-
-    <TextView
-        android:id="@+id/textLoginPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/password"
-        app:layout_constraintBottom_toBottomOf="@+id/userPasswordInput"
-        app:layout_constraintEnd_toStartOf="@+id/userPasswordInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/userPasswordInput" />
-
-    <TextView
-        android:id="@+id/textLoginEmail"
-        android:layout_width="38dp"
-        android:layout_height="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Email"
-        app:layout_constraintBottom_toBottomOf="@+id/userEmailInput"
-        app:layout_constraintEnd_toStartOf="@+id/userEmailInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/userEmailInput" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="260dp"
@@ -71,49 +21,10 @@
         app:srcCompat="@drawable/reks" />
 
     <Button
-        android:id="@+id/lLoginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/login"
-        app:layout_constraintEnd_toStartOf="@+id/lSignup"
-        app:layout_constraintHorizontal_bias="0.905"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPasswordInput" />
-
-    <Button
-        android:id="@+id/lSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:text="@string/register_now"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPasswordInput" />
-
-    <TextView
-        android:id="@+id/lTextWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/welcome_please_sign_in_to_continue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
         android:id="@+id/googleSignIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="304dp"
         android:background="@drawable/common_google_signin_btn_text_dark"
         android:clickable="true"
         android:foreground="@drawable/common_google_signin_btn_icon_dark"
@@ -121,8 +32,21 @@
         android:onClick="signIn"
         android:text="Sign In with Google"
         android:textColor="#FAFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_please_sign_in_to_continue"
+        app:layout_constraintBottom_toTopOf="@+id/googleSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lLoginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.979" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
