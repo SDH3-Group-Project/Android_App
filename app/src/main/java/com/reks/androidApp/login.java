@@ -22,6 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity {
     // https://www.youtube.com/watch?v=bBJF1M5h_UU Tutorial Followed for Implementation
@@ -29,6 +31,9 @@ public class login extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    private void createRequest(){
+    private void createRequest() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
@@ -78,6 +83,9 @@ public class login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            if (user != null) {
+                                googleDatabase(user);
+                            }
                             Intent homepageIntent = new Intent(getApplicationContext(), homepage.class);
                             startActivity(homepageIntent);
                         } else {
@@ -88,8 +96,10 @@ public class login extends AppCompatActivity {
                         // ...
                     }
                 });
-
     }
 
-
+    private void googleDatabase(FirebaseUser user) {
+        myRef.child("Users").child(user.getUid()).child("Email").setValue(user.getEmail());
+        myRef.child("Users").child(user.getUid()).child("Name").setValue(user.getDisplayName());
+    }
 }

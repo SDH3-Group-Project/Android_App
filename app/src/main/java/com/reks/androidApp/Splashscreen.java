@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Splashscreen extends AppCompatActivity {
 
@@ -21,7 +23,6 @@ public class Splashscreen extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
-
 //      If the user is already logged in when you open the app they will be brought directly to the main menu, otherwise they will have to login
         handler.postDelayed(new Runnable() {
             public void run() {
@@ -35,7 +36,6 @@ public class Splashscreen extends AppCompatActivity {
                 }
             }
         }, 1000);
-
-
     }
+
 }
