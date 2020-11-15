@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="sex_male"
+                android:tag="Gender_Male"
                 android:text="@string/male"
                 android:layout_marginRight="@dimen/text_margin"
                 android:onClick="onRadioClicked"/>
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="sex_female"
+                android:tag="Gender_Female"
                 android:text="@string/female"
                 android:onClick="onRadioClicked"/>
 
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="married_yes"
+                android:tag="Married_Yes"
                 android:text="@string/yes"
                 android:layout_marginRight="@dimen/text_margin"
                 android:onClick="onRadioClicked"/>
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="married_no"
+                android:tag="Married_No"
                 android:text="@string/no"
                 android:onClick="onRadioClicked"/>
 
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="graduate"
+                android:tag="Graduate_Yes"
                 android:text="@string/graduate"
                 android:layout_marginRight="@dimen/text_margin"
                 android:onClick="onRadioClicked"/>
@@ -166,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="not_graduate"
+                android:tag="Graduate_No"
                 android:text="@string/not_graduate"
                 android:onClick="onRadioClicked"/>
 
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="graduate_yes"
+                android:tag="sEmployed_Yes"
                 android:text="@string/yes"
                 android:layout_marginRight="@dimen/text_margin"
                 android:onClick="onRadioClicked"/>
@@ -211,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="graduate_no"
+                android:tag="sEmployed_No"
                 android:text="@string/no"
                 android:onClick="onRadioClicked"/>
 
@@ -322,7 +322,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="credit_yes"
+                android:tag="History_Yes"
                 android:text="@string/yes"
                 android:layout_marginRight="@dimen/text_margin"
                 android:onClick="onRadioClicked"/>
@@ -332,7 +332,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="credit_no"
+                android:tag="History_No"
                 android:text="@string/no"
                 android:onClick="onRadioClicked"/>
 

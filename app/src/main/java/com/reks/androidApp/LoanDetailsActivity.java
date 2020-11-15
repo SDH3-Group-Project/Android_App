@@ -71,13 +71,13 @@ public class LoanDetailsActivity extends AppCompatActivity {
                 myRef.child("Loan Details").child(user.getUid()).child("Gender").setValue(allRadio.get("Gender"));
                 myRef.child("Loan Details").child(user.getUid()).child("Married").setValue(allRadio.get("Married"));
                 myRef.child("Loan Details").child(user.getUid()).child("Dependents").setValue(dependentsSpinner.getSelectedItem().toString());
-                myRef.child("Loan Details").child(user.getUid()).child("Education").setValue(allRadio.get("Education"));
-                myRef.child("Loan Details").child(user.getUid()).child("Self Employed").setValue(allRadio.get("Self Employed"));
+                myRef.child("Loan Details").child(user.getUid()).child("Graduate").setValue(allRadio.get("Graduate"));
+                myRef.child("Loan Details").child(user.getUid()).child("Self Employed").setValue(allRadio.get("sEmployed"));
                 myRef.child("Loan Details").child(user.getUid()).child("Applicant Income").setValue(applicantIncome.getText().toString());
                 myRef.child("Loan Details").child(user.getUid()).child("Co-Applicant Income").setValue(coApplicantIncome.getText().toString());
                 myRef.child("Loan Details").child(user.getUid()).child("Loan Amount").setValue(loanAmount.getText().toString());
                 myRef.child("Loan Details").child(user.getUid()).child("Loan Amount Term").setValue(loanAmountTerm.getText().toString());
-                myRef.child("Loan Details").child(user.getUid()).child("Credit History").setValue(allRadio.get("Credit History"));
+                myRef.child("Loan Details").child(user.getUid()).child("Credit History").setValue(allRadio.get("History"));
                 myRef.child("Loan Details").child(user.getUid()).child("Property Area").setValue(propertySpinner.getSelectedItem().toString());
             }
         });
