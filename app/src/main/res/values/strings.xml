@@ -72,4 +72,8 @@
     <string name="average_interior_square_feet_of_15_closest_neighbours">Average Interior Square Feet of 15 closest Neighbours</string>
     <string name="total_square_feet_of_15_closest_neighbour_s_lot">Total Square Feet of 15 closest Neighbour\'s Lot</string>
     <string name="square_feet_above_ground_floors">Square Feet above ground floors</string>
+    <string name="select_house_location">Select House Location</string>
+    <string name="todo">TODO</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
 </resources>

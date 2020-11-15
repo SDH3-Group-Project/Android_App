@@ -8,6 +8,8 @@
     tools:context=".HouseDetailsActivity"
     tools:showIn="@layout/activity_house_details">
 
+
+
     <LinearLayout
         android:id="@+id/lay_main"
         android:layout_width="match_parent"
@@ -459,15 +461,6 @@
                 android:gravity="start" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--long/lat-->
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/longLatButton"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="@string/confirm_location">-->
-<!--        </com.google.android.material.button.MaterialButton>-->
-
 <!--sqft_living15-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -507,6 +500,45 @@
                 android:textAlignment="viewStart"
                 android:gravity="start" />
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--long/lat-->
+        <Button
+            android:id="@+id/longLatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="getLongLat"
+            android:text="@string/select_house_location" />
+
+        <TextView
+            android:id="@+id/textViewLong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/option_margin"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="@string/longitude"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <TextView
+            android:id="@+id/textViewLat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/option_margin"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="@string/latitude"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

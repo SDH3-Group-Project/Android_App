@@ -1,5 +1,6 @@
 package com.reks.androidApp;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +29,8 @@ public class HouseDetailsActivity extends AppCompatActivity {
 //
 //    Spinner propertySpinner;
 //    ArrayAdapter<CharSequence> propertyAdapter;
-
-//    Button longLat;
+    TextView longitude;
+    TextView latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,36 +68,29 @@ public class HouseDetailsActivity extends AppCompatActivity {
             }
         });
 
+        longitude = findViewById(R.id.textViewLong);
+        latitude = findViewById(R.id.textViewLat);
 
-//        dependentsSpinner = (Spinner) findViewById(R.id.dependents_spinner);
-//        dependentsAdapter = ArrayAdapter.createFromResource(this, R.array.dependents_options, android.R.layout.simple_spinner_item);
-//        dependentsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        dependentsSpinner.setAdapter(dependentsAdapter);
-//        dependentsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i) + " is selected",Toast.LENGTH_SHORT);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
+    }
 
-//        propertySpinner = (Spinner) findViewById(R.id.property_spinner);
-//        propertyAdapter = ArrayAdapter.createFromResource(this, R.array.property_options, android.R.layout.simple_spinner_item);
-//        propertyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        propertySpinner.setAdapter(propertyAdapter);
-//        propertySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i) + " is selected",Toast.LENGTH_SHORT);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//            }
-//        });
+    public void getLongLat(View view) {
+        Intent openMap = new Intent(getApplicationContext(), MapsActivity.class);
+        startActivityForResult(openMap, 100);
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode==RESULT_OK){
+
+            if(requestCode==100){
+                longitude.setText(MapsActivity.getLat() + "");
+                latitude.setText(MapsActivity.getLong() + "");
+            }
+        }
+
     }
 }
