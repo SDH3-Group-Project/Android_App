@@ -230,7 +230,7 @@
                 android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/applicant_income"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:tag="applicant_income"
                 android:textAlignment="viewStart"
                 android:gravity="start" />
@@ -249,7 +249,7 @@
                 android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/co_applicant_income"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:tag="co_applicant_income"
                 android:textAlignment="viewStart"
                 android:gravity="start" />

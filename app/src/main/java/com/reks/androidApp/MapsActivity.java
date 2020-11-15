@@ -1,8 +1,13 @@
 package com.reks.androidApp;
 
 import androidx.fragment.app.FragmentActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,10 +17,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.w3c.dom.Text;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap map;
     private Marker marker;
+    private Button confirm;
+    public static float longitude, latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
+
+        confirm = findViewById(R.id.confirmation);
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                longitude = (float) marker.getPosition().latitude;
+                latitude = (float) marker.getPosition().longitude;
+                Intent returnIntent = new Intent();
+                setResult(RESULT_OK, returnIntent);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -55,9 +77,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
-    public void getLongLat(View view) {
-        System.out.println(marker.getPosition().latitude);
-        System.out.println(marker.getPosition().longitude);
+    public static float getLong() {
+        return longitude;
     }
 
+    public static float getLat() {
+        return latitude;
+    }
 }
