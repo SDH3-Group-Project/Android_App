@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".HouseDetailsActivity"
+    tools:showIn="@layout/activity_house_details">
+
+    <LinearLayout
+        android:id="@+id/lay_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--Date-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="text"
+                android:tag="Date"
+                android:textAlignment="viewStart"
+                android:gravity="start"
+                tools:ignore="TextFields" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Bedrooms-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_bedrooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints="Number of Bedrooms"
+                android:ems="10"
+                android:hint="@string/number_of_bedrooms"
+                android:inputType="number"
+                android:tag="Bedrooms"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Sqft_Interior-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_bathrooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints="Number of Bathrooms"
+                android:ems="10"
+                android:hint="@string/number_of_bathrooms_5_for_just_bathrooms"
+                android:inputType="numberDecimal"
+                android:tag="Bathrooms"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Sqft_Interior-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_interior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/interior_square_feet"
+                android:inputType="numberDecimal"
+                android:tag="sqft_interior"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Sqft_Land-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_land"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/total_land_square_feet"
+                android:inputType="numberDecimal"
+                android:tag="sqft_land"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Floors-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_floors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/number_of_floors"
+                android:inputType="number"
+                android:tag="floors"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--Waterfront-->
+        <TextView
+            android:id="@+id/textViewWaterfront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/option_margin"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="@string/waterfront_view"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/text_margin">
+
+            <RadioButton
+                android:id="@+id/radio_water_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="water_yes"
+                android:text="@string/no"
+                android:layout_marginRight="@dimen/text_margin" />
+
+            <RadioButton
+                android:id="@+id/radio_water_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="water_no"
+                android:text="@string/yes" />
+
+        </RadioGroup>
+
+<!--View Quality-->
+        <TextView
+            android:id="@+id/textViewQuality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/option_margin"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="@string/quality_of_the_view"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/text_margin">
+
+            <RadioButton
+                android:id="@+id/radio_viewQuality_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="viewQuality_0"
+                android:text="@string/awful"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_viewQuality_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="viewQuality_1"
+                android:text="@string/bad"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_viewQuality_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="2"
+                android:tag="viewQuality_2"
+                android:text="@string/fine"
+                android:layout_marginRight="@dimen/text_margin"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_viewQuality_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="viewQuality_3"
+                android:text="@string/good"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_viewQuality_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="viewQuality_4"
+                android:text="@string/great"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+        </RadioGroup>
+
+<!--Condition-->
+        <TextView
+            android:id="@+id/textViewCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/option_margin"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="@string/condition_of_the_property"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/text_margin">
+
+            <RadioButton
+                android:id="@+id/radio_condition_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="condition_1"
+                android:text="@string/awful"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_condition_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="condition_2"
+                android:text="@string/bad"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_condition_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="condition_3"
+                android:text="@string/fine"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_condition_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="condition_4"
+                android:text="@string/good"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+
+            <RadioButton
+                android:id="@+id/radio_condition_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_weight="1"
+                android:tag="condition_5"
+                android:text="@string/great"
+                android:layout_marginRight="@dimen/text_margin"
+            />
+        </RadioGroup>
+
+<!--Build Grade-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_Grade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/grade_of_house_0_13"
+                android:inputType="number"
+                android:tag="Grade"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--sqft_above_Floor-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_above_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/square_feet_above_ground_floors"
+                android:inputType="number"
+                android:tag="Sqft_above_floor"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--sqft_basement-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_basement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/basement_sqft"
+                android:inputType="number"
+                android:tag="sqft_basement"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--yr_built-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_yr_built"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/year_of_construction"
+                android:inputType="number"
+                android:tag="yr_built"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--yr_renovated-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_yr_renovated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/last_renovation_yyyy"
+                android:inputType="number"
+                android:tag="yr_renovated"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--zipcode-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_ZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/address_zipcode"
+                android:inputType="text"
+                android:tag="zipcode"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--long/lat-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/longLatButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="@string/confirm_location">-->
+<!--        </com.google.android.material.button.MaterialButton>-->
+
+<!--sqft_living15-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_living15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/average_interior_square_feet_of_15_closest_neighbours"
+                android:inputType="numberDecimal"
+                android:tag="sqft_living15"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--sqft_lot15-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/edit_sqft_lot15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/total_square_feet_of_15_closest_neighbour_s_lot"
+                android:inputType="numberDecimal"
+                android:tag="sqft_lot15"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

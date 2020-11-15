@@ -22,6 +22,13 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
 
+        <activity
+            android:parentActivityName=".homepage"
+            android:name=".HouseDetailsActivity"
+            android:label="@string/title_activity_loan_details"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"
@@ -29,7 +36,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".HouseDetailsActivity">
         </activity>
 
         <activity android:name=".Splashscreen">

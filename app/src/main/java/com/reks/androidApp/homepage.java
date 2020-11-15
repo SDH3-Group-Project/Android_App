@@ -38,6 +38,14 @@ public class homepage extends AppCompatActivity {
             }
         });
 
+        house.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goHouse= new Intent(getApplicationContext(), HouseDetailsActivity.class);
+                startActivity(goHouse);
+            }
+        });
+
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){
             userName.setText(signInAccount.getDisplayName());
