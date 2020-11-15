@@ -167,17 +167,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_weight="1"
-                android:tag="water_yes"
+                android:tag="Water_Yes"
                 android:text="@string/no"
-                android:layout_marginRight="@dimen/text_margin" />
+                android:layout_marginRight="@dimen/text_margin"
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_water_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="water_no"
-                android:text="@string/yes" />
+                android:tag="Water_No"
+                android:text="@string/yes"
+                android:onClick="onRadioClicked"/>
 
         </RadioGroup>
 
@@ -214,7 +216,7 @@
                 android:tag="viewQuality_0"
                 android:text="@string/awful"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_viewQuality_1"
@@ -225,7 +227,7 @@
                 android:tag="viewQuality_1"
                 android:text="@string/bad"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_viewQuality_2"
@@ -236,7 +238,7 @@
                 android:tag="viewQuality_2"
                 android:text="@string/fine"
                 android:layout_marginRight="@dimen/text_margin"
-                />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_viewQuality_3"
@@ -247,7 +249,7 @@
                 android:tag="viewQuality_3"
                 android:text="@string/good"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_viewQuality_4"
@@ -258,7 +260,7 @@
                 android:tag="viewQuality_4"
                 android:text="@string/great"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
         </RadioGroup>
 
 <!--Condition-->
@@ -294,7 +296,7 @@
                 android:tag="condition_1"
                 android:text="@string/awful"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_condition_2"
@@ -305,7 +307,7 @@
                 android:tag="condition_2"
                 android:text="@string/bad"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_condition_3"
@@ -316,7 +318,7 @@
                 android:tag="condition_3"
                 android:text="@string/fine"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_condition_4"
@@ -327,7 +329,7 @@
                 android:tag="condition_4"
                 android:text="@string/good"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
 
             <RadioButton
                 android:id="@+id/radio_condition_5"
@@ -338,7 +340,7 @@
                 android:tag="condition_5"
                 android:text="@string/great"
                 android:layout_marginRight="@dimen/text_margin"
-            />
+                android:onClick="onRadioClicked"/>
         </RadioGroup>
 
 <!--Build Grade-->
