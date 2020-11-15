@@ -14,4 +14,36 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_loan_details">ScrollingActivity</string>
+    <string-array name="dependents_options">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3+</item>
+    </string-array>
+
+    <string-array name="property_options">
+        <item>Urban</item>
+        <item>Semiurban</item>
+        <item>Rural</item>
+    </string-array>
+
+    <string name="action_settings">Settings</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="married">Married</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="dependents">Dependents</string>
+    <string name="education">Education</string>
+    <string name="graduate">Graduate</string>
+    <string name="not_graduate">Not Graduate</string>
+    <string name="self_employed">Self Employed</string>
+    <string name="applicant_income">Applicant Income</string>
+    <string name="co_applicant_income">Co-Applicant Income</string>
+    <string name="loan_amount">Loan Amount (100k)</string>
+    <string name="loan_amount_term">Loan Amount Term</string>
+    <string name="credit_history">Credit History</string>
+    <string name="property_area">Property Area</string>
 </resources>
