@@ -31,6 +31,7 @@ public class login extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
+    FirebaseUser user;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
@@ -82,7 +83,7 @@ public class login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            user = mAuth.getCurrentUser();
                             if (user != null) {
                                 googleDatabase(user);
                             }
@@ -102,4 +103,5 @@ public class login extends AppCompatActivity {
         myRef.child("Users").child(user.getUid()).child("Email").setValue(user.getEmail());
         myRef.child("Users").child(user.getUid()).child("Name").setValue(user.getDisplayName());
     }
+
 }
