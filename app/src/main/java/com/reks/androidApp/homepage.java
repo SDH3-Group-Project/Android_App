@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class homepage extends AppCompatActivity {
 
     TextView userName, userMail;
-    Button logout;
+    Button logout, loan, house;
     ImageView userImage;
 
     @Override
@@ -26,6 +26,17 @@ public class homepage extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         userMail = findViewById(R.id.userMail);
         userImage = findViewById(R.id.userImage);
+        loan = findViewById(R.id.LoanButton);
+        house = findViewById(R.id.houseButton);
+
+
+        loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goLoan = new Intent(getApplicationContext(), LoanDetailsActivity.class);
+                startActivity(goLoan);
+            }
+        });
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){

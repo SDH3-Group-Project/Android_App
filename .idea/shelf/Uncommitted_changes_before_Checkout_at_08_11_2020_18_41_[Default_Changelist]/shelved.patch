@@ -1,0 +1,24 @@
+Index: app/src/main/java/com/reks/androidApp/Splashscreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.reks.androidApp;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\n\r\npublic class Splashscreen extends AppCompatActivity {\r\n\r\n    private FirebaseAuth mAuth;\r\n    private FirebaseUser user;\r\n    Handler handler = new Handler();\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_splashscreen);\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n        user = mAuth.getCurrentUser();\r\n\r\n//      If the user is already logged in when you open the app they will be brought directly to the main menu, otherwise they will have to login\r\n        handler.postDelayed(new Runnable() {\r\n            public void run() {\r\n                if(user != null){\r\n                    Intent homepageIntent = new Intent(getApplicationContext(), homepage.class);\r\n                    startActivity(homepageIntent);\r\n                }\r\n                else{\r\n                    Intent loginIntent = new Intent(getApplicationContext(), login.class);\r\n                    startActivity(loginIntent);\r\n                }\r\n            }\r\n<<<<<<< HEAD\r\n        }, 2000);\r\n\r\n\r\n=======\r\n        }, 1000);\r\n>>>>>>> 0fcad0c9abf84c0e38725a55e39843731cdd4126\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/reks/androidApp/Splashscreen.java	(revision b7ab3e3717f4d3a736a70dd66b5676b65d0ab34c)
++++ app/src/main/java/com/reks/androidApp/Splashscreen.java	(date 1604859082670)
+@@ -35,10 +35,14 @@
+                     startActivity(loginIntent);
+                 }
+             }
++<<<<<<< HEAD
+ <<<<<<< HEAD
+         }, 2000);
+ 
+ 
++=======
++        }, 1000);
++>>>>>>> 0fcad0c9abf84c0e38725a55e39843731cdd4126
+ =======
+         }, 1000);
+ >>>>>>> 0fcad0c9abf84c0e38725a55e39843731cdd4126

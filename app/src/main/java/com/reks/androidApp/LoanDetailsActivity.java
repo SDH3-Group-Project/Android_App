@@ -1,5 +1,6 @@
 package com.reks.androidApp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -40,6 +41,17 @@ public class LoanDetailsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        FloatingActionButton fab_back = (FloatingActionButton) findViewById(R.id.fab_back);
+        fab_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goback = new Intent(getApplicationContext(), homepage.class);
+                startActivity(goback);
+            }
+        });
+
+
         dependentsSpinner = (Spinner) findViewById(R.id.dependents_spinner);
         dependentsAdapter = ArrayAdapter.createFromResource(this, R.array.dependents_options, android.R.layout.simple_spinner_item);
         dependentsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
