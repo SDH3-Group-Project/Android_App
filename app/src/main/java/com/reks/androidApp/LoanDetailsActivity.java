@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -12,7 +15,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions;
+import com.google.firebase.ml.common.modeldownload.FirebaseModelManager;
+import com.google.firebase.ml.custom.FirebaseCustomRemoteModel;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -24,6 +31,9 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.tensorflow.lite.Interpreter;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -79,6 +89,44 @@ public class LoanDetailsActivity extends AppCompatActivity {
                 myRef.child("Loan Details").child(user.getUid()).child("Loan Amount Term").setValue(loanAmountTerm.getText().toString());
                 myRef.child("Loan Details").child(user.getUid()).child("Credit History").setValue(allRadio.get("History"));
                 myRef.child("Loan Details").child(user.getUid()).child("Property Area").setValue(propertySpinner.getSelectedItem().toString());
+
+                FirebaseCustomRemoteModel remoteModel =
+                        new FirebaseCustomRemoteModel.Builder("loan_dataset_model").build();
+                FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder()
+                        .requireWifi()
+                        .build();
+                FirebaseModelManager.getInstance().download(remoteModel, conditions)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void v) {
+                                // Download complete. Depending on your app, you could enable
+                                // the ML feature, or switch from the local model to the remote
+                                // model, etc.
+                                FirebaseCustomRemoteModel remoteModel = new FirebaseCustomRemoteModel.Builder("loan_dataset_model").build();
+                                FirebaseModelManager.getInstance().getLatestModelFile(remoteModel)
+                                        .addOnCompleteListener(new OnCompleteListener<File>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<File> task)
+                                            {
+                                                File modelFile = task.getResult();
+                                                if (modelFile != null)
+                                                {
+                                                    Interpreter interpreter = new Interpreter(modelFile);
+
+                                                    float[][] hardcodedInputs = {{5849f, 0f, 146.4121622f, 360f, 1f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 1f, 0f, 0f, 0f}};
+                                                    Map<Integer, Object> outputMap = new HashMap<Integer, Object>();
+
+                                                    float[][] outputValue = new float[1][1];
+                                                    outputMap.put(0, outputValue);
+                                                    interpreter.runForMultipleInputsOutputs(hardcodedInputs, outputMap);
+                                                    float[][] result = (float[][]) outputMap.get(0);
+                                                    System.out.println("Prediction Matrix:" + result[0][0]);
+                                                }
+                                            }
+
+                                        });
+                            }
+                        });
             }
         });
 
