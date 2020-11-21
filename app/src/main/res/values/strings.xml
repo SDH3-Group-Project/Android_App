@@ -76,4 +76,5 @@
     <string name="todo">TODO</string>
     <string name="longitude">Longitude</string>
     <string name="latitude">Latitude</string>
+    <string name="enter_amount">Enter Amount</string>
 </resources>
