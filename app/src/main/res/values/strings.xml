@@ -73,9 +73,19 @@
     <string name="total_square_feet_of_15_closest_neighbour_s_lot">Total Square Feet of 15 closest Neighbour\'s Lot</string>
     <string name="square_feet_above_ground_floors">Square Feet above ground floors</string>
     <string name="select_house_location">Select House Location</string>
-    <string name="todo">TODO</string>
     <string name="longitude">Longitude</string>
     <string name="latitude">Latitude</string>
     <string name="enter_amount">Enter Amount</string>
     <string name="feedback_review"><![CDATA[Feedback & Review]]></string>
+    <string name="aplication_results">Aplication Results</string>
+    <string name="username">username</string>
+    <string name="useremail">userEmail</string>
+    <string name="log_out">Log out</string>
+    <string name="loan_application">Loan Application</string>
+    <string name="house_application">House Application</string>
+    <string name="support_forms">Support Forms</string>
+    <string name="live_chat_support">Live Chat Support</string>
+    <string name="about_us">About Us</string>
+    <string name="loan_officer_details">Loan Officer Details</string>
+    <string name="todo">TODO</string>
 </resources>
