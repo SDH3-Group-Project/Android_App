@@ -3,8 +3,6 @@ package com.reks.androidApp;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -34,9 +32,10 @@ import android.widget.Toast;
 import org.tensorflow.lite.Interpreter;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class LoanDetailsActivity extends AppCompatActivity {
 
@@ -76,7 +75,28 @@ public class LoanDetailsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
 
                 mAuth = FirebaseAuth.getInstance();
-                FirebaseUser user = mAuth.getCurrentUser();
+                final FirebaseUser user = mAuth.getCurrentUser();
+
+                ArrayList<Float> inputs = new ArrayList<Float>();
+                inputs.add((float) encodeData(new String[]{"Female", "Male"}, allRadio.get("Gender").toString()));
+                inputs.add((float) encodeData(new String[]{"No", "Yes"}, allRadio.get("Married").toString()));
+                inputs.add((float) encodeData(new String[]{"0", "1", "2", "3+"}, dependentsSpinner.getSelectedItem().toString()));
+                inputs.add((float) encodeData(new String[]{"No", "Yes"}, allRadio.get("Graduate")));
+                inputs.add((float) encodeData(new String[]{"No", "Yes"}, allRadio.get("sEmployed")));
+                inputs.add(Float.valueOf(applicantIncome.getText().toString()));
+                inputs.add(Float.valueOf(coApplicantIncome.getText().toString()));
+                inputs.add(Float.valueOf(loanAmount.getText().toString()));
+                inputs.add(Float.valueOf(loanAmountTerm.getText().toString()));
+                inputs.add((float) encodeData(new String[]{"No", "Yes"}, allRadio.get("History").toString()));
+                inputs.add((float)encodeData(new String[]{"Rural", "Semiurban", "Urban"}, propertySpinner.getSelectedItem().toString()));
+                final float[] input_tensors = new float[11];
+
+                for(int i = 0; i < inputs.size(); i++)
+                {
+                    input_tensors[i] = inputs.get(i);
+                }
+
+                normalizeData(input_tensors); // Sets the mean to 0 and the Standard deviation to 1
 
                 myRef.child("Loan Details").child(user.getUid()).child("Gender").setValue(allRadio.get("Gender"));
                 myRef.child("Loan Details").child(user.getUid()).child("Married").setValue(allRadio.get("Married"));
@@ -111,16 +131,12 @@ public class LoanDetailsActivity extends AppCompatActivity {
                                                 File modelFile = task.getResult();
                                                 if (modelFile != null)
                                                 {
+
                                                     Interpreter interpreter = new Interpreter(modelFile);
-
-                                                    float[][] hardcodedInputs = {{5849f, 0f, 146.4121622f, 360f, 1f, 1f, 0f, 1f, 1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 1f, 0f, 0f, 0f}};
-                                                    Map<Integer, Object> outputMap = new HashMap<Integer, Object>();
-
                                                     float[][] outputValue = new float[1][1];
-                                                    outputMap.put(0, outputValue);
-                                                    interpreter.runForMultipleInputsOutputs(hardcodedInputs, outputMap);
-                                                    float[][] result = (float[][]) outputMap.get(0);
-                                                    System.out.println("Prediction Matrix:" + result[0][0]);
+                                                    interpreter.run(input_tensors, outputValue);
+                                                    System.out.println("Prediction is: " + (outputValue[0][0] * 100) );
+                                                    myRef.child("Loan Details").child(user.getUid()).child("Prediction").setValue((outputValue[0][0] * 100) > 52);
                                                 }
                                             }
 
@@ -184,6 +200,57 @@ public class LoanDetailsActivity extends AppCompatActivity {
         // Put all data
         if (checked) {
             allRadio.put(group, pick);
+        }
+    }
+
+    public int encodeData(String[] options, String option)
+    {
+        for(int i = 0; i < options.length; i++)
+        {
+            if(option.equals(options[i]))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public float getMean(float[] array)
+    {
+        float sum = 0;
+
+        for(int i = 0; i < array.length; i++) {
+            sum+=array[i];
+        }
+        return sum /(float) array.length;
+    }
+    public float getStandardDeviation(float[] array)
+    {
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = array.length;
+
+        for(double num : array) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(double num: array) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return (float) Math.sqrt(standardDeviation/length);
+    }
+
+    public void normalizeData(float[] array)
+    {
+        float mean = getMean(array);
+        float standardDeviation  = getStandardDeviation(array);
+
+        for(int i = 0; i < array.length; i++)
+        {
+            array[i] -= mean;
+            array[i] /= standardDeviation;
         }
     }
 
