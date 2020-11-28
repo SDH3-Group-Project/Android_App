@@ -57,11 +57,11 @@
     <string name="quality_of_the_view">Quality of the View</string>
     <string name="_1">1</string>
     <string name="_0">0</string>
-    <string name="awful">Awful</string>
-    <string name="bad">Bad</string>
-    <string name="fine">Fine</string>
-    <string name="good">Good</string>
-    <string name="great">Great</string>
+    <string name="awful">1</string>
+    <string name="bad">2</string>
+    <string name="fine">3</string>
+    <string name="good">4</string>
+    <string name="great">5</string>
     <string name="grade_of_house_0_13">Grade Of House (0-13)</string>
     <string name="basement_sqft">Square Feet in Basement</string>
     <string name="year_of_construction">Year of Construction (yyyy)</string>
@@ -77,4 +77,5 @@
     <string name="longitude">Longitude</string>
     <string name="latitude">Latitude</string>
     <string name="enter_amount">Enter Amount</string>
+    <string name="feedback_review"><![CDATA[Feedback & Review]]></string>
 </resources>

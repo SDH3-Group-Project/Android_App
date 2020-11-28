@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class homepage extends AppCompatActivity {
 
     TextView userName, userMail;
-    Button logout, loan, house;
+    Button logout, loan, house, chatbot, support, feedback;
     ImageView userImage;
 
     @Override
@@ -28,6 +28,9 @@ public class homepage extends AppCompatActivity {
         userImage = findViewById(R.id.userImage);
         loan = findViewById(R.id.LoanButton);
         house = findViewById(R.id.houseButton);
+        chatbot = findViewById(R.id.chatbot);
+        support = findViewById(R.id.SupportButton);
+        feedback = findViewById(R.id.Review);
 
 
         loan.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +48,30 @@ public class homepage extends AppCompatActivity {
                 startActivity(goHouse);
             }
         });
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goReview= new Intent(getApplicationContext(), feedback.class);
+                startActivity(goReview);
+            }
+        });
+
+        support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goSup= new Intent(getApplicationContext(), Support.class);
+                startActivity(goSup);
+            }
+        });
+
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goChat= new Intent(getApplicationContext(), chatbot.class);
+                startActivity(goChat);
+            }
+        });
+
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){

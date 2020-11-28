@@ -292,11 +292,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/text_margin"
-                android:layout_weight="1"
-                android:tag="condition_1"
-                android:text="@string/awful"
                 android:layout_marginRight="@dimen/text_margin"
-                android:onClick="onRadioClicked"/>
+                android:layout_weight="1"
+                android:onClick="onRadioClicked"
+                android:tag="condition_1"
+                android:text="@string/awful" />
 
             <RadioButton
                 android:id="@+id/radio_condition_2"

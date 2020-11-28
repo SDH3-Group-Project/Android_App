@@ -15,14 +15,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight">
+        <activity android:name=".feedback" android:parentActivityName=".homepage"/>
+        <activity
+            android:name=".Support"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".chatbot"
+            android:parentActivityName=".homepage" />
         <activity android:name=".PaymentDetails" />
-        <activity android:name=".PaypalTest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".PaypalTest" />
         <activity
             android:name=".LoanDetailsActivity"
             android:label="@string/title_activity_loan_details"
@@ -42,21 +43,15 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".HouseDetailsActivity" />
-        <activity android:name=".Splashscreen">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".homepage">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
+        <activity android:name=".homepage" />
         <activity android:name=".login" />
+        <activity android:name=".Splashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
