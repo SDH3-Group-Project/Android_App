@@ -91,15 +91,17 @@
     <Button
         android:id="@+id/SupportButton"
         android:layout_width="187dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="196dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="137dp"
         android:text="Human Support"
+        app:layout_constraintBottom_toTopOf="@+id/resultsButton"
         app:layout_constraintEnd_toStartOf="@+id/chatbot"
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/houseButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Review"
@@ -114,5 +116,38 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/aboutUsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:text="About Us"
+        app:layout_constraintBottom_toTopOf="@+id/loanOfficerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultsButton" />
+
+    <Button
+        android:id="@+id/resultsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="Aplication Results"
+        app:layout_constraintBottom_toTopOf="@+id/aboutUsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SupportButton" />
+
+    <Button
+        android:id="@+id/loanOfficerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="137dp"
+        android:text="Loan Officer Details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutUsButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

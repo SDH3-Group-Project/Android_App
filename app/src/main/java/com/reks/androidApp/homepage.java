@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class homepage extends AppCompatActivity {
 
     TextView userName, userMail;
-    Button logout, loan, house, chatbot, support, feedback;
+    Button logout, loan, house, chatbot, support, feedback, aboutus, result, loanOfficer;
     ImageView userImage;
 
     @Override
@@ -31,6 +31,9 @@ public class homepage extends AppCompatActivity {
         chatbot = findViewById(R.id.chatbot);
         support = findViewById(R.id.SupportButton);
         feedback = findViewById(R.id.Review);
+        aboutus = findViewById(R.id.aboutUsButton);
+        result = findViewById(R.id.resultsButton);
+        loanOfficer = findViewById(R.id.loanOfficerButton);
 
 
         loan.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +57,30 @@ public class homepage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goReview= new Intent(getApplicationContext(), feedback.class);
                 startActivity(goReview);
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goAbout= new Intent(getApplicationContext(), aboutus.class);
+                startActivity(goAbout);
+            }
+        });
+
+        result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goResult= new Intent(getApplicationContext(), loanResult.class);
+                startActivity(goResult);
+            }
+        });
+
+        loanOfficer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goOfficer= new Intent(getApplicationContext(), loanOfficer.class);
+                startActivity(goOfficer);
             }
         });
 

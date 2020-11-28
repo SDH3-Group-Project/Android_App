@@ -15,7 +15,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight">
-        <activity android:name=".feedback" android:parentActivityName=".homepage"/>
+        <activity android:name=".loanResult" android:parentActivityName=".homepage"/>
+        <activity android:name=".loanOfficer" android:parentActivityName=".homepage"/>
+        <activity android:name=".aboutus" android:parentActivityName=".homepage"/>
+        <activity
+            android:name=".feedback"
+            android:parentActivityName=".homepage" />
         <activity
             android:name=".Support"
             android:parentActivityName=".homepage" />
