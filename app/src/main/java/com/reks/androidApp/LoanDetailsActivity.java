@@ -88,11 +88,10 @@ public class LoanDetailsActivity extends AppCompatActivity {
                 inputs.add(Float.valueOf(loanAmount.getText().toString()));
                 inputs.add(Float.valueOf(loanAmountTerm.getText().toString()));
                 inputs.add((float) encodeData(new String[]{"No", "Yes"}, allRadio.get("History").toString()));
-                inputs.add((float)encodeData(new String[]{"Rural", "Semiurban", "Urban"}, propertySpinner.getSelectedItem().toString()));
+                inputs.add((float) encodeData(new String[]{"Rural", "Semiurban", "Urban"}, propertySpinner.getSelectedItem().toString()));
                 final float[] input_tensors = new float[11];
 
-                for(int i = 0; i < inputs.size(); i++)
-                {
+                for (int i = 0; i < inputs.size(); i++) {
                     input_tensors[i] = inputs.get(i);
                 }
 
@@ -126,17 +125,15 @@ public class LoanDetailsActivity extends AppCompatActivity {
                                 FirebaseModelManager.getInstance().getLatestModelFile(remoteModel)
                                         .addOnCompleteListener(new OnCompleteListener<File>() {
                                             @Override
-                                            public void onComplete(@NonNull Task<File> task)
-                                            {
+                                            public void onComplete(@NonNull Task<File> task) {
                                                 File modelFile = task.getResult();
-                                                if (modelFile != null)
-                                                {
+                                                if (modelFile != null) {
 
                                                     Interpreter interpreter = new Interpreter(modelFile);
                                                     float[][] outputValue = new float[1][1];
                                                     interpreter.run(input_tensors, outputValue);
-                                                    System.out.println("Prediction is: " + (outputValue[0][0] * 100) );
-                                                    myRef.child("Loan Details").child(user.getUid()).child("Prediction").setValue((outputValue[0][0] * 100) > 52);
+                                                    System.out.println("Prediction is: " + (outputValue[0][0] * 100));
+                                                    myRef.child("Loan Details").child(user.getUid()).child("Prediction").setValue((outputValue[0][0] * 100));
                                                 }
                                             }
 
@@ -203,52 +200,46 @@ public class LoanDetailsActivity extends AppCompatActivity {
         }
     }
 
-    public int encodeData(String[] options, String option)
-    {
-        for(int i = 0; i < options.length; i++)
-        {
-            if(option.equals(options[i]))
-            {
+    public int encodeData(String[] options, String option) {
+        for (int i = 0; i < options.length; i++) {
+            if (option.equals(options[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public float getMean(float[] array)
-    {
+    public float getMean(float[] array) {
         float sum = 0;
 
-        for(int i = 0; i < array.length; i++) {
-            sum+=array[i];
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
         }
-        return sum /(float) array.length;
+        return sum / (float) array.length;
     }
-    public float getStandardDeviation(float[] array)
-    {
+
+    public float getStandardDeviation(float[] array) {
         double sum = 0.0, standardDeviation = 0.0;
         int length = array.length;
 
-        for(double num : array) {
+        for (double num : array) {
             sum += num;
         }
 
-        double mean = sum/length;
+        double mean = sum / length;
 
-        for(double num: array) {
+        for (double num : array) {
             standardDeviation += Math.pow(num - mean, 2);
         }
 
-        return (float) Math.sqrt(standardDeviation/length);
+        return (float) Math.sqrt(standardDeviation / length);
     }
 
-    public void normalizeData(float[] array)
-    {
+    public void normalizeData(float[] array) {
         float mean = getMean(array);
-        float standardDeviation  = getStandardDeviation(array);
+        float standardDeviation = getStandardDeviation(array);
 
-        for(int i = 0; i < array.length; i++)
-        {
+        for (int i = 0; i < array.length; i++) {
             array[i] -= mean;
             array[i] /= standardDeviation;
         }
