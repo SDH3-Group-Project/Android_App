@@ -95,8 +95,6 @@ public class LoanDetailsActivity extends AppCompatActivity {
                     input_tensors[i] = inputs.get(i);
                 }
 
-                normalizeData(input_tensors); // Sets the mean to 0 and the Standard deviation to 1
-
                 myRef.child("Loan Details").child(user.getUid()).child("Gender").setValue(allRadio.get("Gender"));
                 myRef.child("Loan Details").child(user.getUid()).child("Married").setValue(allRadio.get("Married"));
                 myRef.child("Loan Details").child(user.getUid()).child("Dependents").setValue(dependentsSpinner.getSelectedItem().toString());
@@ -207,42 +205,6 @@ public class LoanDetailsActivity extends AppCompatActivity {
             }
         }
         return -1;
-    }
-
-    public float getMean(float[] array) {
-        float sum = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum / (float) array.length;
-    }
-
-    public float getStandardDeviation(float[] array) {
-        double sum = 0.0, standardDeviation = 0.0;
-        int length = array.length;
-
-        for (double num : array) {
-            sum += num;
-        }
-
-        double mean = sum / length;
-
-        for (double num : array) {
-            standardDeviation += Math.pow(num - mean, 2);
-        }
-
-        return (float) Math.sqrt(standardDeviation / length);
-    }
-
-    public void normalizeData(float[] array) {
-        float mean = getMean(array);
-        float standardDeviation = getStandardDeviation(array);
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] -= mean;
-            array[i] /= standardDeviation;
-        }
     }
 
 }
