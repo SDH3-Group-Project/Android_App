@@ -27,8 +27,8 @@
         <activity
             android:name=".chatbot"
             android:parentActivityName=".homepage" />
-        <activity android:name=".PaymentDetails" />
-        <activity android:name=".PaypalTest" />
+        <activity android:name=".PaymentDetails" android:parentActivityName=".homepage"/>
+        <activity android:name=".PaypalTest" android:parentActivityName=".homepage"/>
         <activity
             android:name=".LoanDetailsActivity"
             android:label="@string/title_activity_loan_details"

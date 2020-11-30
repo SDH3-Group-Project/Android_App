@@ -79,7 +79,7 @@ public class homepage extends AppCompatActivity {
         loanOfficer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goOfficer= new Intent(getApplicationContext(), loanOfficer.class);
+                Intent goOfficer= new Intent(getApplicationContext(), PaypalTest.class);
                 startActivity(goOfficer);
             }
         });

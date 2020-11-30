@@ -86,7 +86,7 @@
     <string name="support_forms">Support Forms</string>
     <string name="live_chat_support">Live Chat Support</string>
     <string name="about_us">About Us</string>
-    <string name="loan_officer_details">Loan Officer Details</string>
+    <string name="loan_officer_details">Prediction Officer Payment</string>
     <string name="todo">TODO</string>
     <string name="apllication_results">AI Prediction Results</string>
 </resources>
