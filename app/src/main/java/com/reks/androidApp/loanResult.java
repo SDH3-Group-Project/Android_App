@@ -21,11 +21,11 @@ public class loanResult extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
 
-    String prediction;
+    String prediction, prediction1;
 
-    TextView loanPrediction;
+    TextView loanPrediction, housePrediction;
 
-    Double tempFormat;
+    Double tempFormat, tempFormat1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class loanResult extends AppCompatActivity {
         user = mAuth.getCurrentUser();
 
         loanPrediction = findViewById(R.id.loanPrediction);
+//        housePrediction = findViewById(R.id.housePrediction);
 
         getPrediction();
 
@@ -49,15 +50,33 @@ public class loanResult extends AppCompatActivity {
                 if (dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").exists()){
                     prediction = dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").getValue().toString();
                     tempFormat = Double.parseDouble(prediction);
-
-
-                        prediction = String.format("%.2f", tempFormat) + "% Chance to get a loan";
-
+//                    if (tempFormat < 20){
+//                        prediction = "Rejected from loan";
+//                    }
+//                    else {
+                        prediction = String.format("%.2f", tempFormat) + "%";
+//                    }
                 }
                 else{
                     prediction = "No prediction made";
                 }
                 loanPrediction.setText(prediction);
+
+//                if (dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").exists()){
+//                    prediction1 = dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").getValue().toString();
+//                    tempFormat1 = Double.parseDouble(prediction1);
+////                    if (tempFormat < 20){
+////                        prediction = "Rejected from loan";
+////                    }
+////                    else {
+//                    prediction1 = "$" + String.format("%.2f", tempFormat1);
+////                    }
+//                }
+//                else{
+//                    prediction1 = "No prediction made";
+//                }
+//                loanPrediction.setText(prediction1);
+
             }
 
             @Override
