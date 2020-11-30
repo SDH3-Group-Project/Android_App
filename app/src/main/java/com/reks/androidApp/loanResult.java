@@ -49,12 +49,10 @@ public class loanResult extends AppCompatActivity {
                 if (dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").exists()){
                     prediction = dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").getValue().toString();
                     tempFormat = Double.parseDouble(prediction);
-                    if (tempFormat < 52){
-                        prediction = "Rejected from loan";
-                    }
-                    else {
-                        prediction = "%" + String.format("%.2f", tempFormat) + " Chance to get a loan";
-                    }
+
+
+                        prediction = String.format("%.2f", tempFormat) + "% Chance to get a loan";
+
                 }
                 else{
                     prediction = "No prediction made";
