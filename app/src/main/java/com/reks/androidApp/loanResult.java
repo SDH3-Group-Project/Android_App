@@ -36,46 +36,34 @@ public class loanResult extends AppCompatActivity {
         user = mAuth.getCurrentUser();
 
         loanPrediction = findViewById(R.id.loanPrediction);
-//        housePrediction = findViewById(R.id.housePrediction);
+        housePrediction = findViewById(R.id.housePrediction);
 
         getPrediction();
 
     }
 
-    private void getPrediction(){
+    private void getPrediction() {
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").exists()){
+                if (dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").exists()) {
                     prediction = dataSnapshot.child("Loan Details").child(user.getUid()).child("Prediction").getValue().toString();
                     tempFormat = Double.parseDouble(prediction);
-//                    if (tempFormat < 20){
-//                        prediction = "Rejected from loan";
-//                    }
-//                    else {
-                        prediction = String.format("%.2f", tempFormat) + "%";
-//                    }
-                }
-                else{
+                    prediction = String.format("%.2f", tempFormat) + "%";
+                } else {
                     prediction = "No prediction made";
                 }
                 loanPrediction.setText(prediction);
 
-//                if (dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").exists()){
-//                    prediction1 = dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").getValue().toString();
-//                    tempFormat1 = Double.parseDouble(prediction1);
-////                    if (tempFormat < 20){
-////                        prediction = "Rejected from loan";
-////                    }
-////                    else {
-//                    prediction1 = "$" + String.format("%.2f", tempFormat1);
-////                    }
-//                }
-//                else{
-//                    prediction1 = "No prediction made";
-//                }
-//                loanPrediction.setText(prediction1);
+                if (dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").exists()) {
+                    prediction1 = dataSnapshot.child("House Details").child(user.getUid()).child("Prediction").getValue().toString();
+                    tempFormat1 = Double.parseDouble(prediction1);
+                    prediction1 = "$" + String.format("%.2f", tempFormat1);
+                } else {
+                    prediction1 = "No prediction made";
+                }
+                housePrediction.setText(prediction1);
 
             }
 
