@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,9 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class feedback extends AppCompatActivity {
 
-    RadioGroup ratingSelector;
-
-    RadioButton rating;
+    RatingBar ratingSelector;
 
     EditText review;
 
@@ -37,7 +36,7 @@ public class feedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
 
-        //ratingSelector = findViewById(R.id.starRating);
+        ratingSelector = findViewById(R.id.ratingBar2);
         review = findViewById(R.id.feedback);
         submit = findViewById(R.id.feedbackSubmit);
         mAuth = FirebaseAuth.getInstance();
@@ -53,9 +52,8 @@ public class feedback extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
-                rating = findViewById(ratingSelector.getCheckedRadioButtonId());
-               // myRef.child("Reviews").child(user.getUid()).child("Rating").setValue(rating.getText().toString());
-                myRef.child("Reviews").child(user.getUid()).child("Review").setValue(review.getText().toString());
+                myRef.child("Reviews").child(user.getUid()).child("Rating").setValue(ratingSelector.getRating());
+                myRef.child("Reviews").child(user.getUid()).child("Review").setValue(review.getText().toString().trim());
 
                 review.setText("");
             }
