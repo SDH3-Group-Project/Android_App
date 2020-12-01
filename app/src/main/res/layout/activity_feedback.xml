@@ -22,13 +22,12 @@
 
     <RatingBar
         android:id="@+id/ratingBar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_width="387dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:stepSize=".5"
         app:layout_constraintBottom_toTopOf="@+id/feedbackLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
