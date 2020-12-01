@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class feedback extends AppCompatActivity {
 
     RadioGroup ratingSelector;
+
+    RadioButton rating;
 
     EditText review;
 
@@ -41,8 +44,8 @@ public class feedback extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int rating = ratingSelector.getCheckedRadioButtonId();
-                myRef.child("Reviews").child(user.getUid()).child("Rating").setValue(rating + 1);
+                rating = findViewById(ratingSelector.getCheckedRadioButtonId());
+                myRef.child("Reviews").child(user.getUid()).child("Rating").setValue(rating.getText().toString());
                 myRef.child("Reviews").child(user.getUid()).child("Review").setValue(review.getText().toString());
             }
         });
