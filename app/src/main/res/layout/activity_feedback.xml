@@ -6,4 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".feedback">
 
+    <TextView
+        android:id="@+id/starRatingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginBottom="16dp"
+        android:text="Star Rating"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:stepSize=".5"
+        app:layout_constraintBottom_toTopOf="@+id/feedbackLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/feedback"
+        android:layout_width="0dp"
+        android:layout_height="321dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top"
+        android:inputType="text|textMultiLine"
+        android:verticalScrollbarPosition="right"
+        app:layout_constraintBottom_toTopOf="@+id/feedbackSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/feedbackSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/feedbackLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Feedback/Suggestions"
+        app:layout_constraintBottom_toTopOf="@+id/feedback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="185dp"
+        android:layout_height="176dp"
+        app:layout_constraintBottom_toTopOf="@+id/starRatingText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/applogo_foreground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
