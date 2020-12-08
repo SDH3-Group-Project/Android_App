@@ -23,6 +23,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions
+            {
+                exclude 'META-INF/LICENSE'
+                exclude 'META-INF/DEPENDENCIES'
+                exclude 'META-INF/INDEX.LIST'
+            }
 }
 
 dependencies {
@@ -39,6 +46,12 @@ dependencies {
 
     //PayPal
     implementation 'com.paypal.sdk:paypal-android-sdk:2.15.3'
+
+    //DialogFlow SDK
+    implementation 'ai.api:sdk:2.0.7@aar'
+    implementation 'ai.api:libai:1.6.12'
+    implementation 'com.google.cloud:google-cloud-dialogflow:2.1.0'
+    implementation 'io.grpc:grpc-okhttp:1.30.0'
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
