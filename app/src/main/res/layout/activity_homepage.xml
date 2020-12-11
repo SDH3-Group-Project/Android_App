@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".homepage">
 
     <Button
@@ -22,6 +23,7 @@
         android:layout_width="212dp"
         android:layout_height="19dp"
         android:text="@string/username"
+        android:textColor="@color/yellowAccent"
         app:layout_constraintBottom_toTopOf="@+id/userMail"
         app:layout_constraintEnd_toStartOf="@+id/logout"
         app:layout_constraintStart_toEndOf="@+id/userImage"
@@ -29,16 +31,16 @@
 
     <ImageView
         android:id="@+id/userImage"
-        android:layout_width="77dp"
-        android:layout_height="59dp"
+        android:layout_width="83dp"
+        android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="@+id/logout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/logout"
         app:srcCompat="@drawable/reks"
-        tools:srcCompat="@drawable/reks"
-        android:contentDescription="@string/todo" />
+        tools:srcCompat="@drawable/reks" />
 
     <TextView
         android:id="@+id/userMail"
@@ -46,6 +48,7 @@
         android:layout_height="17dp"
         android:layout_marginTop="12dp"
         android:text="@string/useremail"
+        android:textColor="@color/yellowAccent"
         app:layout_constraintBottom_toBottomOf="@+id/logout"
         app:layout_constraintEnd_toStartOf="@+id/logout"
         app:layout_constraintStart_toEndOf="@+id/userImage"
@@ -95,17 +98,17 @@
 
     <Button
         android:id="@+id/SupportButton"
+        android:layout_width="wrap_content"
         android:layout_height="129dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/support_forms"
         app:layout_constraintEnd_toStartOf="@+id/chatbot"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultsButton"
-        android:layout_width="wrap_content" />
+        app:layout_constraintTop_toBottomOf="@+id/resultsButton" />
 
     <Button
         android:id="@+id/Review"

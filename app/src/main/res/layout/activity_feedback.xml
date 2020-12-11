@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".feedback">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="688dp"
+        android:layout_height="165dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/city" />
 
     <TextView
         android:id="@+id/starRatingText"
@@ -13,11 +26,12 @@
         android:layout_marginTop="240dp"
         android:layout_marginBottom="16dp"
         android:text="Star Rating"
+        android:textColor="@color/yellowAccent"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.689" />
 
     <RatingBar
         android:id="@+id/ratingBar2"
@@ -63,18 +77,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Feedback/Suggestions"
+        android:textColor="@color/yellowAccent"
         app:layout_constraintBottom_toTopOf="@+id/feedback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="185dp"
-        android:layout_height="176dp"
-        app:layout_constraintBottom_toTopOf="@+id/starRatingText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/applogo_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
