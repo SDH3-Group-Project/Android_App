@@ -14,7 +14,7 @@
         android:icon="@mipmap/applogo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight">
+        android:theme="@style/Theme.AppCompat">
         <activity android:name=".loanResult" android:parentActivityName=".homepage"/>
         <activity android:name=".loanOfficer" android:parentActivityName=".homepage"/>
         <activity android:name=".aboutus" android:parentActivityName=".homepage"/>
@@ -33,13 +33,12 @@
             android:name=".LoanDetailsActivity"
             android:label="@string/title_activity_loan_details"
             android:parentActivityName=".homepage"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".HouseDetailsActivity"
             android:label="@string/title_activity_loan_details"
             android:parentActivityName=".homepage"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -47,7 +46,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:parentActivityName=".HouseDetailsActivity" />
+            android:parentActivityName=".HouseDetailsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".homepage" />
         <activity android:name=".login" />
         <activity android:name=".Splashscreen">

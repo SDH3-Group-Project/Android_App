@@ -21,7 +21,6 @@ public class homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-
         logout = findViewById(R.id.logout);
         userName = findViewById(R.id.userName);
         userMail = findViewById(R.id.userMail);
